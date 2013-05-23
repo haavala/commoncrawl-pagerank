@@ -2,7 +2,7 @@
 require 'rubygems'
 warn "reduce.rb"
 ARGF.each_line do |line|
-  warn "working with line: #{line}"
+  #warn "working with line: #{line}"
   line = line.chomp
   key, value = line.split(/\t/)
 

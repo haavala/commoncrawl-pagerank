@@ -5,7 +5,7 @@ require 'json'
 STDIN.each do |line|  
   # Commoncrawl metadata file starts with url, followed by the tag character and metadata data in JSON format
   # Page url is the key
-  key, value = line.chomp.split('\t', 2)
+  key, value = line.chomp.split(/\t/, 2)
   links = []
   if value
     begin
@@ -16,8 +16,7 @@ STDIN.each do |line|
   end
   out_links = []
   links.each do |l|
-    out_links <<  l['href'] if l['type']== 'link'
+    out_links <<  l['href'] if l['type']== 'a'
   end
-  warn out_links.inspect
   puts key + "\t" + out_links.uniq.join(' ')
 end
