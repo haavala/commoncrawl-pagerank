@@ -11,13 +11,21 @@ cat sample_input | ./crawl_mapper.rb | ./crawl_reducer.rb > result
 
 Running Amazon Elastic MapReduce jobs
 --
-Input location: s3://aws-publicdatasets/common-crawl/parse-output/segment/1346823846150/metadata-*
-Output location: s3://../output
-Mapper: s3://.../crawl_mapper.rb
-Reducer: s3://.../crawl_reducer.rb
-Extra args: -inputformat SequenceFileAsTextInputFormat
-Custom Bootstrap action: s3://.../setup.sh
+* Input location: s3://aws-publicdatasets/common-crawl/parse-output/segment/1346823846150/metadata-*
+* Output location: s3://../output
+* Mapper: s3://.../crawl_mapper.rb
+* Reducer: s3://.../crawl_reducer.rb
+* Extra args: -inputformat SequenceFileAsTextInputFormat
+* Custom Bootstrap action: s3://.../setup.sh
 
+Commoncrawl Metadata
+--
+
+Metadata file is about 16MB each.
+To get the list of valid segments:
+```bash
+aws get aws-publicdatasets/common-crawl/parse-output/valid_segments.txt
+```
 
 URL extraction
 --
