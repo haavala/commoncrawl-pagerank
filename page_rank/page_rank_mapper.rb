@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
-require 'rubygems'
 
 STDIN.each do |line|
   key, value = line.chomp.split(/\t/, 2)
