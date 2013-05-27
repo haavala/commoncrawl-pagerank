@@ -3,10 +3,10 @@ URL extraction and pagerank mapreduce jobs on CommonCrawl(http://commoncrawl.org
 
 Test URL extraction locally:
 ```bash
-chmod +x crawl_mapper.rb
-chmod +x crawl_reducer.rb
+chmod +x url_parsing/crawl_mapper.rb
+chmod +x url_parsing/crawl_reducer.rb
 
-cat sample_input | ./crawl_mapper.rb | ./crawl_reducer.rb > result
+cat sample_input | ./url_parsing/crawl_mapper.rb | ./url_parsing/crawl_reducer.rb > result
 ```
 
 Running Amazon Elastic MapReduce jobs
@@ -44,3 +44,10 @@ Information about http://www.neti.ee/cgi-bin/serverid:
 
 PageRank calculation
 --
+
+```bash
+chmod +x page_rank/page_rank_mapper.rb
+chmod +x page_rank/page_rank_reducer.rb
+
+cat sample_input | ./page_rank/page_rank_mapper.rb | sort | ./page_rank/page_rank_reducer.rb > result
+```
